@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: activation.jar mysql-connector-java-5.0.5.jar org.apache.c
+ ommons.io.jar mail.jar java-json.jar activation.jar
+Main-Class: main
+

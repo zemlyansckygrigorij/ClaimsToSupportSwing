@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact name="ClaimsToSupportSwing:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ClaimsToSupportSwing_jar</output-path>
+    <root id="root">
+      <element id="archive" name="ClaimsToSupportSwing.jar">
+        <element id="module-output" name="ClaimsToSupportSwing" />
+      </element>
+      <element id="library" level="project" name="activation1" />
+      <element id="library" level="project" name="mysql-connector-java-5.0.5" />
+      <element id="library" level="project" name="gson-2.6.2-javadoc" />
+      <element id="library" level="project" name="org.apache.commons.io" />
+      <element id="library" level="project" name="mail" />
+      <element id="library" level="project" name="java-json" />
+      <element id="library" level="project" name="activation" />
+    </root>
+  </artifact>
+</component>
