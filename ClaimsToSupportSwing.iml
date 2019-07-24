@@ -14,5 +14,7 @@
     <orderEntry type="library" name="activation1" level="project" />
     <orderEntry type="library" name="mail" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.0.5" level="project" />
+    <orderEntry type="library" name="deploy" level="project" />
+    <orderEntry type="library" name="junit-4.13-beta-3" level="project" />
   </component>
 </module>

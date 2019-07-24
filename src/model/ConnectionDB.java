@@ -1,5 +1,8 @@
 package model;
 
+import view.FrameException;
+
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -47,11 +50,13 @@ public class ConnectionDB {
             connection = DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+dbName+ "?autoReconnect="+autoReconnect+"&useSSL="+useSSL   , userName, password);
             ConnectionDB.setConnect(true);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            JFrame myWindow = new FrameException(" Отсутствует файл  mysql-connector-java!!!");
             Settings.writeError(e);
+            e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
+            JFrame myWindow = new FrameException(" Ошибка подключения к базе данных !!!");
             Settings.writeError(e);
+            e.printStackTrace();
         }
         return connection;
     }

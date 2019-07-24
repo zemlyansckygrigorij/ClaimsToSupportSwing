@@ -1,5 +1,8 @@
 package model;
 
+import view.FrameException;
+
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -21,9 +24,13 @@ public class ListError {
             }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
+            JFrame myWindow = new FrameException(" Отсутствует файл  ListError.txt !!!");
+            Settings.writeError(e);
             e.printStackTrace();
         }
         catch (IOException e) {
+            JFrame myWindow = new FrameException(" Отсутствует файл  ошибка программы !!!");
+            Settings.writeError(e);
             e.printStackTrace();
         }
 

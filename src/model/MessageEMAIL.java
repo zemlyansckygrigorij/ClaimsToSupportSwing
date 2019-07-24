@@ -16,36 +16,20 @@ import java.util.Map;
 
 public class MessageEMAIL extends MimeMessage {
     private  Map<String, String> settings = Settings.getSettings();
+
     public MessageEMAIL(String text, File file) {
         super(SessionEMAIL.getSession());
-        System.out.println("text - "+ text);
-       /* try {
-            this.setFrom(new InternetAddress(settings.get("eMailFrom")));
-            this.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(settings.get("eMailTo")));
-            this.setSubject("Сообщение об ошибке");
-            this.setText(text);
-            Transport.send(this);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            JFrame myWindow = new FrameException(" Ошибка отправки сообщения !!!");
-            Settings.writeError(e);
-        }
- */
-
-
-
-     MimeBodyPart messageBodyPart = new MimeBodyPart();
-
+        MimeBodyPart messageBodyPart = new MimeBodyPart();
         Multipart multipart = new MimeMultipart();
 
-        messageBodyPart = new MimeBodyPart();
         DataSource source = new FileDataSource(file);
+        MimeBodyPart textBodyPart = new MimeBodyPart();
         try {
+            textBodyPart.setText(text);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(file.getName());
-            messageBodyPart.setText(text);
             multipart.addBodyPart(messageBodyPart);
+            multipart.addBodyPart(textBodyPart);  // add the text part
             this.setContent(multipart);
 
 
@@ -53,9 +37,12 @@ public class MessageEMAIL extends MimeMessage {
             this.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(settings.get("eMailTo")));
             this.setSubject("Сообщение об ошибке");
-            //this.setText(text);
+
             Transport.send(this);
         } catch (MessagingException e) {
+
+            JFrame myWindow = new FrameException(" Отсутствует файл  отправки сообщения!!!");
+            Settings.writeError(e);
             e.printStackTrace();
         }
 

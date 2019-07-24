@@ -6,6 +6,7 @@ import view.FrameException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class ControlTeamViewer {
     private static String path = System.getProperty("user.dir");
@@ -15,9 +16,10 @@ public class ControlTeamViewer {
             pb.command(path +"\\TeamViewerQS.exe");
             pb.start();
         }
-        catch (Exception e) {
+        catch (IOException e) {
             JFrame myWindow = new FrameException(" Ошибка программы !!!");
             Settings.writeError(e);
+            e.printStackTrace();
         }
     }
     public static void minimazeAllWindows(){
@@ -29,9 +31,10 @@ public class ControlTeamViewer {
             rb.keyRelease(KeyEvent.VK_D);
         }
         catch (AWTException e) {
-            System.err.println("robot");
+
             JFrame myWindow = new FrameException(" Ошибка AWT !!!");
             Settings.writeError(e);
+            e.printStackTrace();
         };
     }
 }

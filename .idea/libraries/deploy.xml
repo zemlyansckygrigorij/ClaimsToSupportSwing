@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="deploy">
+    <CLASSES>
+      <root url="jar://C:/Program Files/Java/libraries/deploy.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

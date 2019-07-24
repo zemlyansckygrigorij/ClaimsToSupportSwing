@@ -2,6 +2,9 @@ package model;
 
 
 
+import view.FrameException;
+
+import javax.swing.*;
 import java.util.HashSet;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,8 +24,9 @@ public class UserRepository {
                 userSet.add(resultSetUser.getString(1));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JFrame myWindow = new FrameException(" Отсутствует подключение к ббазе данных !!!");
             Settings.writeError(e);
+            e.printStackTrace();
         }
     }
     private UserRepository(){}

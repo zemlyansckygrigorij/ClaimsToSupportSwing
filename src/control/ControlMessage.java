@@ -34,8 +34,8 @@ public class ControlMessage {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             JFrame myWindow = new FrameException("Ошибка прерывания !!!");
-
             Settings.writeError(e);
+
             e.printStackTrace();
         }
 
