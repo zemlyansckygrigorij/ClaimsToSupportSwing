@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 
 import control.ControlMessage;
+import control.ControlTeamViewer;
 import model.ListError;
 
 import java.awt.*;
@@ -71,8 +72,8 @@ public class FormControl extends JFrame {
         labelUserName.setBounds(10, 330, 300, 20);
         userName.setBounds(10, 350, 300, 20);
         sendClaim.setBounds(320, 345, 300, 30);
-        getSupport.setBounds(320, 345, 300, 30);
-        //getSupport.setBounds(320, 375, 300, 30);
+       // getSupport.setBounds(320, 345, 300, 30);
+        getSupport.setBounds(320, 375, 300, 30);
         warning.setBounds(10, 375, 300, 20);
         messageForUser.setBounds(10, 395, 300, 30);
     }
@@ -89,7 +90,7 @@ public class FormControl extends JFrame {
     private void setPanelSettings(){
         panel.setLayout(null);
         panel.add(listError);
-        //panel.add(sendClaim);
+        panel.add(sendClaim);
         panel.add(getSupport);
         panel.add(selectError);
         panel.add(labelAdditionalInformation);
@@ -102,14 +103,8 @@ public class FormControl extends JFrame {
 
     public class SendClaimActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.println(123);
 
-        }
-    }
-
-    public class SupportOnlineActionListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-// проверка выбрана ли ошибка из списка
+            // проверка выбрана ли ошибка из списка
             if(listError.isSelectionEmpty()){
                 messageForUser.setText("Выберите ошибку !");
                 return;
@@ -126,6 +121,16 @@ public class FormControl extends JFrame {
             }
             // отправка сообщения
             ControlMessage.sendMessage(userName.getText(),listError.getSelectedValue().toString()+additionalInformation.getText().toString());
+
+
+
+
+        }
+    }
+
+    public class SupportOnlineActionListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            ControlTeamViewer.runTeamviewer();
 
         }
     }

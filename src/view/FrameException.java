@@ -20,7 +20,7 @@ public class FrameException extends JFrame {
         closeForm.setFont(new Font("Arial", Font.PLAIN, 16));
         closeForm.setBounds(90, 100, 100, 40);
         closeForm.addActionListener(new SendClaimActionListener());
-        messageAboutError.setFont(new Font("Arial", Font.PLAIN, 20));
+        messageAboutError.setFont(new Font("Arial", Font.PLAIN, 14));
         messageAboutError.setBounds(20, 20, 300, 40);
         panel.setLayout(null);
         panel.add(messageAboutError);

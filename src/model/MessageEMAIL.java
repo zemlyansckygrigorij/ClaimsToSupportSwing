@@ -45,8 +45,23 @@ public class MessageEMAIL extends MimeMessage {
             Settings.writeError(e);
             e.printStackTrace();
         }
+    }
 
+    public MessageEMAIL(String text ) {
+        super(SessionEMAIL.getSession());
 
+        try {
 
+            this.setFrom(new InternetAddress(settings.get("eMailFrom")));
+            this.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(settings.get("eMailTo")));
+            this.setSubject("Сообщение об ошибке");
+            this.setText(text);
+            Transport.send(this);
+        } catch (MessagingException e) {
+            JFrame myWindow = new FrameException(" Ошибка отправки сообщения !!!");
+            Settings.writeError(e);
+            e.printStackTrace();
+        }
     }
 }
