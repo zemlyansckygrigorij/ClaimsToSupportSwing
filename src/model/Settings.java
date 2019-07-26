@@ -28,7 +28,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-
+import java.util.prefs.Preferences;
 
 
 public class Settings {
@@ -36,37 +36,65 @@ public class Settings {
     private static Map<String, String> settings = new HashMap<String, String>();
     private static String userName = "";
     private static String path =System.getProperty("user.dir");
+    private static String[] ListError ;
     static{
-
+        settings.put("UserName",getStringValueFromWinRegistry("UserName"));
+        System.out.println("UserName - " +getStringValueFromWinRegistry("UserName"));
         setSettingTest();
       //  setSettingWork();
     }
     private static void setSettingWork(){
 
-        setSettingFromWinRegistry("Server");
-        setSettingFromWinRegistry("DirServer");
-        setSettingFromWinRegistry("UserName");
+      //  settings.put("UserName",getStringValueFromWinRegistry("UserName"));
+        settings.put("UserName",getStringValueFromWinRegistry("UserName"));
+        settings.put("Server",getStringValueFromWinRegistry("Server"));
         setSetting(path+"\\localSetting.ini");
-        settings.put("userName", settings.get("UserName"));
+        //settings.put("userName", settings.get("UserName"));
     }
     private static void setSettingFromWinRegistry(String valueName){
-        String value = null;                                              //ValueName
+        settings.put(valueName,getStringValueFromWinRegistry(valueName));
+    }
+    private static String getStringValueFromWinRegistry(String valueName){
+        String value = null;
         try {
             value = WinRegistry.readString(
                     WinRegistry.HKEY_CURRENT_USER,                             //HKEY
                     "SOFTWARE\\CRAT-SUCCI",           //Key
                     valueName);
-            settings.put(valueName,value);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
+        return value;
     }
+
+    private static List<String> getListStringValueFromWinRegistry(String valueName){
+        List<String> list = new ArrayList<>();
+        String[] arr = null;
+
+        try {
+            Map<String, String> map = WinRegistry.readStringValues(WinRegistry.HKEY_CURRENT_USER , "SOFTWARE\\CRAT-SUCCI");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return list;
+    }
+
+
     private static void setSettingTest(){
         setSetting(path+"\\localSettingTest.ini");
     }
     private static void setSetting(String path){
+        setSettingFromWinRegistry("ListError");
+        setSettingFromWinRegistry("Server");
+        System.out.println("ListError - " +settings.get("ListError"));
+        System.out.println("Server - " +settings.get("Server"));
         try {
             FileInputStream inF = new FileInputStream(path);
 

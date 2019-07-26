@@ -28,15 +28,22 @@ public class ConnectionDB {
         Map<String, String> settings = Settings.getSettings();
         dbName = settings.get("dbName");
         userName  = settings.get("userName");
-        host = settings.get("host");
+        host = settings.get("Server");//settings.get("host");
         port = settings.get("port");
-        password = settings.get("passwordDB");
+        password = "qazwsx"; //settings.get("passwordDB");
+
+        System.out.println("dbName - " +settings.get("dbName"));
+        System.out.println("userName - " +Settings.getSettings().get("userName"));
+        System.out.println("host  - " +Settings.getSettings().get("Server"));
+        System.out.println("port  - " +Settings.getSettings().get("port"));
+        System.out.println("Server - " +Settings.getSettings().get("Server"));
+        System.out.println("password - " +password);
     }
 
 
     public static void setSetting(String dbName, String userName, String password, String host, String port){
         ConnectionDB.dbName = dbName;
-        ConnectionDB.userName = userName;
+        ConnectionDB.userName = "root";//userName;
         ConnectionDB.password = password;
         ConnectionDB.host = host;
         ConnectionDB.port = port;

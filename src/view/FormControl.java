@@ -30,14 +30,8 @@ public class FormControl extends JFrame {
     JMenuItem adminFileItem = new JMenuItem("для администраторов");
     JMenuItem userFileItem = new JMenuItem("для пользователей");
     public FormControl(){
-
-
-
         helpMenu.add(adminFileItem);
-
-
         helpMenu.add(userFileItem);
-
         panel.add( helpMenu);
 
         this.setTitle("Программа автоматизации заявок");

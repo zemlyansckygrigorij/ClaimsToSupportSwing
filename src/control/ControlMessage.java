@@ -21,19 +21,29 @@ public class ControlMessage {
             return;
         }
         Settings.setUserName(userName.trim());
-        /*
-        ControlTeamViewer.runTeamviewer();
+     //   ControlTeamViewer.runTeamviewer();
+        //ControlMessage.sleep(20000);
+        String ip = getIP();
 
-        // задержка времени
+        new MessageEMAIL("ФИО:"+userName+"\n"+"Тел:"+       "\n"+"IP:"+ip +"\n" +"e-mail:"+"\n"+"TeamViewer/AnyDesk:"+"\n\n"+ text);
+   //     new MessageEMAIL(new ControlDateTime("dd.MM.yyyy hh-mm").getDateTime() +"-"+userName+"-"+text ,ControlScreenShot.getScreenShot());
+        //ControlMessage.sleep(5000);
+
+
+
+        //свертывание программы  путем нажатия кнопок WINDOWS +M
+      //  ControlTeamViewer.minimazeAllWindows();
+    }
+    private static void sleep(int time){
         try {
-            Thread.sleep(20000);
+            Thread.sleep(time);
         } catch (InterruptedException e) {
             JFrame myWindow = new FrameException("Ошибка прерывания !!!");
             Settings.writeError(e);
             e.printStackTrace();
         }
-*/
-
+    }
+    private static String getIP(){
         String ip = "";
         try {
             ip = getLocalHostLANAddress().toString();
@@ -43,23 +53,8 @@ public class ControlMessage {
 
             e.printStackTrace();
         }
-        new MessageEMAIL(new ControlDateTime("dd.MM.yyyy hh-mm").getDateTime() +"\n"+userName+"\n"+ip +"\n"+ text);
-   //     new MessageEMAIL(new ControlDateTime("dd.MM.yyyy hh-mm").getDateTime() +"-"+userName+"-"+text ,ControlScreenShot.getScreenShot());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            JFrame myWindow = new FrameException("Ошибка прерывания !!!");
-            Settings.writeError(e);
-
-            e.printStackTrace();
-        }
-
-
-        //свертывание программы  путем нажатия кнопок WINDOWS +M
-      //  ControlTeamViewer.minimazeAllWindows();
+        return ip;
     }
-
-
     /**
      * Returns an <code>InetAddress</code> object encapsulating what is most likely the machine's LAN IP address.
      * <p/>

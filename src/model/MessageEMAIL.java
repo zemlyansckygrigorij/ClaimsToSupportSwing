@@ -36,7 +36,7 @@ public class MessageEMAIL extends MimeMessage {
             this.setFrom(new InternetAddress(settings.get("eMailFrom")));
             this.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(settings.get("eMailTo")));
-            this.setSubject("Сообщение об ошибке");
+            this.setSubject("Палата торгово-промышленная ЮУ");
 
             Transport.send(this);
         } catch (MessagingException e) {

@@ -17,7 +17,7 @@ public class UserRepository {
     static{
         Connection connection = ConnectionDB.getConnection();
         try (Statement statement = connection.createStatement()) {
-            String selectUser = "SELECT User FROM cratu.user";
+            String selectUser = "SELECT Alias FROM crat.UsersDb ;";
             ResultSet resultSetUser = statement.executeQuery(selectUser);
             while ( resultSetUser.next()) {
                 //создаем обьект -клиент
