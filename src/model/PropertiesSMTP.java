@@ -1,10 +1,17 @@
 package model;
 
+/**
+ * @author Землянский Григорий Михайлович
+ * @version 1.7
+ * класс для установки свойств smtp протокола
+ * данные беруться из редактора реестра Windows
+ *
+ * */
 import java.util.Map;
 import java.util.Properties;
 
 public class PropertiesSMTP {
-    private static Properties smtp= new Properties();
+    private static Properties smtp = new Properties();
     private static Map<String, String> settings = Settings.getSettings();
     static{
         smtp.put("mail.smtp.auth",settings.get("mailSmtpAuth"));

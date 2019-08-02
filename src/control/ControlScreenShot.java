@@ -1,11 +1,18 @@
 package control;
-
+/**
+ * @author Землянский Григорий Михайлович
+ * @version 1.7
+ *
+ * класс для создания скриншота экрана, создания файла картинки
+ * и сохранения его в папке "pictures"
+ */
 import model.Settings;
 import view.FrameException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +26,7 @@ public class ControlScreenShot {
     private static Path pathPictures = Paths.get(path+"\\pictures\\");
     private static String pictureName = "";
 
-
+//
     public static File getScreenShot(){
         checkFolderPictures();
         Robot robot = null;
@@ -31,7 +38,10 @@ public class ControlScreenShot {
             Settings.writeError(e);
             e.printStackTrace();
         }
+        robot.keyPress(KeyEvent.VK_ALT);
+
         BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+        robot.keyRelease(KeyEvent.VK_ALT);
         try {
 
             ImageIO.write(screenShot, "JPG", image);
@@ -43,7 +53,7 @@ public class ControlScreenShot {
         }
         return image;
     }
-
+//проверить наличие папки pictures если нет то создается
     private static void checkFolderPictures(){
         if (!Files.exists(pathPictures)) {
             try {
@@ -56,11 +66,11 @@ public class ControlScreenShot {
             }
         }
     }
+    // получить имя создаваемой картинки
     private static String getPictureName(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd hh mm ss a");
         Calendar now = Calendar.getInstance();
         pictureName =  formatter.format(now.getTime())+".jpg";
         return pictureName;
     }
-
 }

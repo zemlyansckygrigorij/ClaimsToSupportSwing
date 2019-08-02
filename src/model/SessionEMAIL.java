@@ -9,7 +9,7 @@ public class SessionEMAIL {
     private static Session session = Session.getInstance(PropertiesSMTP.getSMTP(),
             new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(settings.get("eMailFrom"), settings.get("password"));
+                    return new PasswordAuthentication(settings.get("EmailFrom"), settings.get("password"));
                 }
             });
 

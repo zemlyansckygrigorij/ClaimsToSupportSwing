@@ -1,5 +1,11 @@
 package control;
-
+/**
+ * @author Землянский Григорий Михайлович
+ * @version 1.7
+ *
+ * класс для запуска программы TeamViewer
+ *
+ */
 import model.Settings;
 import view.FrameException;
 
@@ -10,11 +16,13 @@ import java.io.IOException;
 
 public class ControlTeamViewer {
     private static String path = System.getProperty("user.dir");
+    private ControlTeamViewer(){}
     public static void runTeamviewer(){
         try {
             ProcessBuilder pb = new ProcessBuilder();
             pb.command(path +"\\TeamViewerQS.exe");
             pb.start();
+            JFrame myWindow = new FrameException("Подождите запускается программа!!!");
         }
         catch (IOException e) {
             JFrame myWindow = new FrameException(" Ошибка программы !!!");
@@ -22,6 +30,8 @@ public class ControlTeamViewer {
             e.printStackTrace();
         }
     }
+
+    //свернуть все окна
     public static void minimazeAllWindows(){
         try {
             Robot rb=new Robot();

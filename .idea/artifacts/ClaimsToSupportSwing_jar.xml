@@ -1,17 +1,25 @@
 <component name="ArtifactManager">
-  <artifact name="ClaimsToSupportSwing:jar">
+  <artifact type="jar" build-on-make="true" name="ClaimsToSupportSwing:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ClaimsToSupportSwing_jar</output-path>
-    <root id="root">
-      <element id="archive" name="ClaimsToSupportSwing.jar">
-        <element id="module-output" name="ClaimsToSupportSwing" />
-      </element>
-      <element id="library" level="project" name="activation1" />
-      <element id="library" level="project" name="mysql-connector-java-5.0.5" />
+    <root id="archive" name="ClaimsToSupportSwing.jar">
+      <element id="module-output" name="ClaimsToSupportSwing" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/jaf-1_1_1/jaf-1.1.1/activation.jar" path-in-jar="/" />
       <element id="library" level="project" name="gson-2.6.2-javadoc" />
-      <element id="library" level="project" name="org.apache.commons.io" />
-      <element id="library" level="project" name="mail" />
-      <element id="library" level="project" name="java-json" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/javamail1_4_7/javamail-1.4.7/mail.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/deploy.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/java-json/java-json/java-json.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/mysql-connector-java-5.0.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/junit-4.13-beta-3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/activation.jar/activation.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/libraries/org.apache.commons.io_/org.apache.commons.io.jar" path-in-jar="/" />
       <element id="library" level="project" name="activation" />
+      <element id="library" level="project" name="activation1" />
+      <element id="library" level="project" name="deploy" />
+      <element id="library" level="project" name="java-json" />
+      <element id="library" level="project" name="junit-4.13-beta-3" />
+      <element id="library" level="project" name="mail" />
+      <element id="library" level="project" name="mysql-connector-java-5.0.5" />
+      <element id="library" level="project" name="org.apache.commons.io" />
     </root>
   </artifact>
 </component>

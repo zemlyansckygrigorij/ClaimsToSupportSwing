@@ -1,5 +1,10 @@
 package model;
-
+/**
+ * @author Землянский Григорий Михайлович
+ * @version 1.7
+ * класс для формирования списка ошибок из файла ListError.txt
+ *
+ * */
 import view.FrameException;
 
 import javax.swing.*;
@@ -10,9 +15,7 @@ public class ListError {
     private Set<String> errors = new HashSet<>();
     private String path = System.getProperty("user.dir");
     public ListError(){
-        System.out.println(path+"/ListError.txt");
         getListErrorFromFile();
-
     }
     private void getListErrorFromFile() {
         try {
@@ -33,11 +36,9 @@ public class ListError {
             Settings.writeError(e);
             e.printStackTrace();
         }
-
     }
 
     public  Set<String>  getListError(){
         return errors;
     }
-
 }
