@@ -56,7 +56,7 @@ public class MessageEMAIL extends MimeMessage {
             this.setSubject("Палата торгово-промышленная ЮУ");// тема сообщения
 
             Transport.send(this);//отправка сообщения
-            JFrame myWindow = new FrameMessage(" Сообщение отправлено!!!");
+         //   JFrame myWindow = new FrameMessage(" Сообщение отправлено!!!");
         } catch (MessagingException e) {
 
             JFrame myWindow = new FrameException(" Отсутствует файл  отправки сообщения!!!");

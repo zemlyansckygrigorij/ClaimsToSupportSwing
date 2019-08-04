@@ -44,6 +44,6 @@ public class ControlMessage {
                     "TeamViewer/AnyDesk:"+"\n\n"+ text;
 
             new MessageEMAIL(message);// отправка сообщения
-          }
+        }
     }
 }

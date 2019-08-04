@@ -9,7 +9,6 @@ package view;
  * */
 import control.ControlMessage;
 import control.ControlTeamViewer;
-
 import model.ControlMenu;
 import model.ListError;
 
@@ -53,7 +52,7 @@ public class FormControl extends JFrame {
         this.setBackground(new Color(255, 100, 100));
         this.setBounds(200, 100, 700, 560);
 
-         // свойство переноса строк поле дополнительная информация
+        // свойство переноса строк поле дополнительная информация
         additionalInformation.setLineWrap(true);
         additionalInformation.setWrapStyleWord(true);
 
@@ -139,7 +138,7 @@ public class FormControl extends JFrame {
             }
 
             // отправка сообщения
-           ControlMessage.sendMessage(userName.getText(),listError.getSelectedValue().toString()+additionalInformation.getText().toString());
+            ControlMessage.sendMessage(userName.getText(),listError.getSelectedValue().toString()+additionalInformation.getText().toString());
             additionalInformation.setText("");
         }
     }

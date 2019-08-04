@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="deploy">
+  <library name="javax.mail-api-1.4.6">
     <CLASSES>
-      <root url="jar://C:/Program Files/Java/libraries/deploy.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.mail-api-1.4.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

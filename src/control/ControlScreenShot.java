@@ -26,7 +26,7 @@ public class ControlScreenShot {
     private static Path pathPictures = Paths.get(path+"\\pictures\\");
     private static String pictureName = "";
 
-//
+    //
     public static File getScreenShot(){
         checkFolderPictures();
         Robot robot = null;
@@ -53,7 +53,7 @@ public class ControlScreenShot {
         }
         return image;
     }
-//проверить наличие папки pictures если нет то создается
+    //проверить наличие папки pictures если нет то создается
     private static void checkFolderPictures(){
         if (!Files.exists(pathPictures)) {
             try {

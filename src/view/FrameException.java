@@ -1,5 +1,4 @@
 package view;
-
 /**
  * @author Землянский Григорий Михайлович
  * @version 1.7
@@ -51,7 +50,7 @@ public class FrameException extends JFrame {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     private void closeForm(){
-            this.setVisible(false);
+        this.setVisible(false);
     }
 
     public class CloseActionListener  implements ActionListener {

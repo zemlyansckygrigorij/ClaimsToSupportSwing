@@ -1,7 +1,6 @@
 package test;
 import org.junit.*;
 import static org.junit.Assert.*;
-import org.junit.Test;
 import control.ControlDateTime;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,12 +9,20 @@ public class ControlDateTimeTest {
 
 
     @Test
-    public void testSomeBehavior() {
+    public void testFormatDateTime(String pattern ){
         String dateTime;
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd hh mm ss a");
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
         Calendar now = Calendar.getInstance();
         dateTime = formatter.format( now.getTime());
 
-      //  assertEquals("несоответствие формата времени",dateTime,new ControlDateTime().getDateTime());
+        System.out.println("testFormatDateTime()");
+        try {
+            assertEquals(dateTime,new ControlDateTime(pattern).getDateTime());
+            System.out.println("формат времени соответствует ожидаемому");
+        }catch(AssertionError e ){
+            System.out.println("несоответствие формата времени");
+           // throw e;
+             e.printStackTrace();
+        }
     }
 }
