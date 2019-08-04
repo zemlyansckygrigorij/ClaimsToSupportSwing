@@ -67,7 +67,7 @@ public class MessageEMAIL extends MimeMessage {
 
     }
 
-    public MessageEMAIL(String text ) {
+    public MessageEMAIL(String text) {
         super(SessionEMAIL.getSession());//создаем сессию smtp
 
         try {

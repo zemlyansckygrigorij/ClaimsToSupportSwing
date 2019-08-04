@@ -30,7 +30,7 @@ public class ControlMessage {
         User user = defaultUser;
 
         try{
-            user  = UserRepository.getUser(userName);
+          //  user  = UserRepository.getUser(userName);
         }catch(Exception e){
             Settings.writeError(e);
             e.printStackTrace();
